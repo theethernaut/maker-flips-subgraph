@@ -2,7 +2,8 @@
   "name": "maker-flips",
   "license": "UNLICENSED",
   "scripts": {
-    "codegen": "graph codegen",
+    "build-manifest": "mustache -p dataSource.template.yaml config/mainnet.json subgraph.template.yaml subgraph.yaml",
+    "codegen": "rm -rf generated; graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ajsantander/maker-flips",
     "create-local": "graph create --node http://localhost:8020/ ajsantander/maker-flips",
@@ -11,6 +12,7 @@
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.18.0",
-    "@graphprotocol/graph-ts": "0.18.0"
+    "@graphprotocol/graph-ts": "0.18.0",
+    "mustache": "^4.0.1"
   }
 }

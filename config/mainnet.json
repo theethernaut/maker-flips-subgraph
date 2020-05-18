@@ -1,0 +1,30 @@
+{
+  "network": "mainnet",
+  "dataSources": [
+    {
+      "name": "FlipperETH",
+      "address": "0xd8a04f5412223f513dc55f839574430f5ec15531",
+      "startBlock": "8928180"
+    },
+    {
+      "name": "FlipperUSDC",
+      "address": "0xe6ed1d09a19bd335f051d78d5d22df3bff2c28b1",
+      "startBlock": "9686502"
+    },
+    {
+      "name": "FlipperBAT",
+      "address": "0xaa745404d55f88c108a28c86abe7b5a1e7817c07",
+      "startBlock": "8928187"
+    },
+    {
+      "name": "FlipperWBTC",
+      "address": "0x3e115d85d4d7253b05fec9c0bb5b08383c2b0603",
+      "startBlock": "9975625"
+    },
+    {
+      "name": "FlipperSAI",
+      "address": "0x5432b2f3c0dff95aa191c45e5cbd539e2820ae72",
+      "startBlock": "8928212"
+    }
+  ]
+}

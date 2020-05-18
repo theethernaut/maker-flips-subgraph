@@ -1,0 +1,29 @@
+- kind: ethereum/contract
+  name: {{name}}
+  network: {{network}}
+  source:
+    address: '{{address}}'
+    abi: Flipper
+    startBlock: {{startBlock}}
+  mapping:
+    kind: ethereum/events
+    apiVersion: 0.0.4
+    language: wasm/assemblyscript
+    entities:
+      - Bid
+    abis:
+      - name: Flipper
+        file: ./abis/Flipper.json
+    eventHandlers:
+      - event: Kick(uint256,uint256,uint256,uint256,indexed address,indexed address)
+        handler: handleKick
+      - event: LogNote(indexed bytes4,indexed address,indexed bytes32,indexed bytes32,bytes)
+        topic0: '0x4b43ed1200000000000000000000000000000000000000000000000000000000' # tend(uint256,uint256,uint256)
+        handler: handleTend
+      - event: LogNote(indexed bytes4,indexed address,indexed bytes32,indexed bytes32,bytes)
+        topic0: '0x5ff3a38200000000000000000000000000000000000000000000000000000000' # dent(uint256,uint256,uint256)
+        handler: handleDent
+      - event: LogNote(indexed bytes4,indexed address,indexed bytes32,indexed bytes32,bytes)
+        topic0: '0xc959c42b00000000000000000000000000000000000000000000000000000000' # deal(uint256)
+        handler: handleDeal
+    file: ./src/mapping.ts

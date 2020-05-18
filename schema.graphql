@@ -1,6 +1,27 @@
-type ExampleEntity @entity {
+enum AuctionState {
+  TENDING
+  DENTING
+  DEALT
+}
+
+type Auction @entity {
   id: ID!
-  count: BigInt!
-  id: BigInt! # uint256
-  lot: BigInt! # uint256
+  lot: BigInt!
+  tap: BigInt!
+  tends: [Tend!]!
+  dents: [Dent!]!
+}
+
+type Tend @entity {
+  id: ID!
+  bid: BigInt!
+  timestamp: BigInt!
+  auction: Auction! @derivedFrom(field: 'tends')
+}
+
+type Dent @entity {
+  id: ID!
+  lot: BigInt!
+  timestamp: BigInt!
+  auction: Auction! @derivedFrom(field: 'dents')
 }
